@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Changelog | Axlemark theme docs</title>
-<meta name="description" content="Release notes for the Axlemark Shopify theme. Version 1.1.0 adds the vehicle diagram, size finder, quick order, brand directory and 16 languages.">
+<meta name="description" content="Release notes for the Axlemark Shopify theme. Version 2.0.0 redesigns the theme as a parts catalog: catalog plates, a parts table view, spec-sheet product pages and a parts-list cart.">
 <link rel="canonical" href="https://lzzhdfq11-tech.github.io/axlemark-docs/changelog.html">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -12,12 +12,12 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Axlemark theme documentation">
 <meta property="og:title" content="Changelog">
-<meta property="og:description" content="Release notes for the Axlemark Shopify theme. Version 1.1.0 adds the vehicle diagram, size finder, quick order, brand directory and 16 languages.">
+<meta property="og:description" content="Release notes for the Axlemark Shopify theme. Version 2.0.0 redesigns the theme as a parts catalog: catalog plates, a parts table view, spec-sheet product pages and a parts-list cart.">
 <meta property="og:url" content="https://lzzhdfq11-tech.github.io/axlemark-docs/changelog.html">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Changelog">
-<meta name="twitter:description" content="Release notes for the Axlemark Shopify theme. Version 1.1.0 adds the vehicle diagram, size finder, quick order, brand directory and 16 languages.">
+<meta name="twitter:description" content="Release notes for the Axlemark Shopify theme. Version 2.0.0 redesigns the theme as a parts catalog: catalog plates, a parts table view, spec-sheet product pages and a parts-list cart.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/nav.js"></script>
@@ -40,6 +40,42 @@
 <div class="doc"><article class="doc-body"><p class="breadcrumb"><a href="index.html">Docs</a> <span aria-hidden="true">/</span> Changelog</p>
 <h1>Changelog</h1>
 <p class="lead">Every Axlemark release, newest first. Shopify notifies you in <em>Online Store &rarr; Themes</em> when an update is available.</p>
+
+<h2 id="v2-0-0">2.0.0 <span class="badge">2026-10-22</span></h2>
+<p>A redesign with one point of view: Axlemark now reads like a workshop manual and parts catalog. Parts shoppers think in part numbers, fitment and specs, so every template uses the same components: hairline rules, numbered figures, part numbers in mono, dotted-leader spec rows and a fit verdict stamped where shoppers can read it.</p>
+<h3>New components</h3>
+<ul>
+<li><strong>Catalog plates</strong>: product cards with a part number strip and status dot, the image in a figure frame with corner ticks and a FIG number, a condensed title, a mono price and a square Add button. Plates share hairline rules in a ruled grid. See <a href="product-page.html#product-cards">Product cards</a>.</li>
+<li><strong>Parts table view</strong> on collections and search: part no., product, fit / status, stock, price and a quantity field with Add on every row. Shoppers switch between Grid and Table and their choice is remembered on their device; on phones rows stack with their column labels.</li>
+<li><strong>Part number match</strong>: a search that matches a variant SKU exactly pins that part above the results with an add-to-cart button.</li>
+<li><strong>Spec-sheet product page</strong>: a catalog path line, a big part number that follows the variant, the fitment stamp, spec rows with dotted leaders plus the selected variant&rsquo;s options, weight and barcode, the buying blocks grouped in a &ldquo;parts slip&rdquo;, and numbered gallery thumbnails with FIG captions. See <a href="product-page.html#spec-sheet">The spec sheet</a>.</li>
+<li><strong>Parts-list cart</strong>: the cart drawer and cart page list numbered lines with part numbers and a fit check on each line, then a counter receipt with dotted-leader totals and the saved vehicle or device as a stamp.</li>
+<li><strong>Exploded-view vehicle diagram</strong>: line art in the new line-art colour with numbered callouts and a parts index that repeats the numbers.</li>
+<li><strong>Chapter headings</strong>: section headings carry a mono chapter number (&sect; 01, &sect; 02 &hellip;) and a rule running to the edge; heroes, finders, empty states and the footer sit on a faint drafting grid.</li>
+<li><strong>Manual-style content</strong>: buying guides are numbered chapters (&ldquo;Guide 03 &middot; 6 min&rdquo;) with a numbered table of contents, the FAQ is a numbered question index (Q.01, Q.02 &hellip;), the brand directory is an A&ndash;Z catalog index, the collections list is a numbered category index and the quick order list is a parts table.</li>
+</ul>
+<h3>New settings</h3>
+<ul>
+<li><em>Theme settings &rarr; Catalog style</em>: Product card style (Catalog plate / Minimal), drafting grid, corner ticks, FIG numbers, numbered section headings and Line art colour. See <a href="getting-started.html#catalog-style">Catalog style</a>.</li>
+<li><em>Typography &rarr; Technical type</em>: a Mono font for part numbers, prices, specs, labels and buttons.</li>
+<li>Collection products and Search results: <strong>Default view</strong> (Grid / Table) and <strong>Show grid / table switch</strong>; Search results also has <strong>Highlight exact part number matches</strong>.</li>
+<li>Product information: <strong>Show catalog path above the media</strong> and <strong>Group buying blocks in a parts slip</strong> (also in Featured product); the Specifications table block has <strong>Add variant options, weight and barcode</strong>.</li>
+<li>Announcement bar: <strong>Layout</strong> (Inline / One at a time) and a <strong>Utility menu</strong>. Header: <strong>Show collection images in the menu</strong> and <strong>Search placeholder</strong>. Footer: a <strong>Statement</strong> line on the drafting grid.</li>
+<li>Collections list page: <strong>Layout</strong> (Numbered tiles / Numbered index rows). Blog posts and Blog post: <strong>Show reading time</strong>.</li>
+</ul>
+<h3>Presets</h3>
+<ul>
+<li><strong>Axlemark</strong>: cool workshop grey (<code>#F2F3F5</code>), graphite ink, safety-orange buttons and blueprint-blue line art; Barlow Condensed uppercase headings, IBM Plex Sans and IBM Plex Mono; square corners.</li>
+<li><strong>Signal</strong>: a light datasheet (<code>#F4F7F9</code>) with dark schematic bands (<code>#0B1622</code>), cyan line art and electric-lime buttons; Space Grotesk headings in sentence case, Instrument Sans and Geist Mono; 4px corners; plates without corner ticks or FIG numbers.</li>
+</ul>
+<h3>Changes</h3>
+<ul>
+<li>No drop shadows on cards or panels: they are separated by hairline rules and paper tone. Buttons use uppercase mono labels, with square corners in the Axlemark preset.</li>
+<li>Header menu items are numbered tabs; account and cart labels are shown next to the icons by default, in the mono font with the cart count.</li>
+<li>Default product template order: the Specifications table now sits under the Fitment check, and Price follows the Variant picker inside the parts slip.</li>
+<li>The fit check on product pages is a stamp: Fits your &hellip;, Universal fit, Check fit or Not confirmed for your &hellip;.</li>
+</ul>
+<div class="note"><strong>Updating from 1.1.0</strong><p>Your content and settings are kept. The new Catalog style details are on by default; turn them off in <em>Theme settings &rarr; Catalog style</em>, or choose <em>Minimal</em> cards, if you prefer a plainer look. Check that your variants have SKUs, because plates, the parts table and the spec sheet use the SKU as the part number.</p></div>
 
 <h2 id="v1-1-0">1.1.0 <span class="badge">October 2026</span></h2>
 <p>Large-catalog navigation, new ways to find parts, business buyer pages, buying guides and 16 languages.</p>
@@ -95,7 +131,7 @@
 </main>
 <footer class="site-footer">
 <div class="wrap">
-<p>Axlemark 1.1.0 &middot; Documentation by Axlemark theme support</p>
+<p>Axlemark 2.0.0 &middot; Documentation by Axlemark theme support</p>
 <ul>
 <li><a href="getting-started.html">Getting started</a></li>
 <li><a href="changelog.html">Changelog</a></li>

@@ -268,7 +268,8 @@ Model A3 | model-a3</code></pre>
 <div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Options and notes</th></tr></thead><tbody><tr><td>Label</td><td>Text</td><td>&ldquo;205/55R16&rdquo;</td><td></td></tr><tr><td>Product tag</td><td>Text</td><td>&ldquo;tyre-205-55-r16&rdquo;</td><td>Opens the collection filtered by this tag.</td></tr></tbody></table></div>
 
 <h2 id="vehicle-diagram">Shop-by-part vehicle diagram</h2>
-<p>The vehicle diagram is an interactive line drawing that lets shoppers browse by where a part sits on the vehicle. They switch between <strong>hatchback, sedan, SUV and pickup</strong>, and between the <strong>exterior and interior</strong> views, then select a hotspot to open a panel with the part name, a short text and links to shop. It uses original artwork with no vehicle brands, works with the keyboard and needs no images from you.</p>
+<p>The vehicle diagram is an exploded view, like the figures in a workshop manual, that lets shoppers browse by where a part sits on the vehicle. They switch between <strong>hatchback, sedan, SUV and pickup</strong>, and between the <strong>exterior and interior</strong> views. Every hotspot is a numbered callout (01, 02 &hellip;), and a parts index repeats the same numbers and names. Selecting a callout opens a panel with the part name, a short text and links to shop; each index row links straight to the part&rsquo;s collection (or its first link, or a search), and hovering a row highlights its callout. It uses original artwork with no vehicle brands, works with the keyboard and needs no images from you.</p>
+<p>The drawing is set in a figure plate with a FIG label and the drafting grid, and is drawn in the <strong>Line art colour</strong> from <em>Theme settings &rarr; Catalog style</em> (blueprint blue in the Axlemark preset). In the Shop by part section the parts index sits beside the drawing; in the Split hero it is a ruled legend row under the drawing. The line drawing animates in once, and not at all for shoppers who prefer reduced motion.</p>
 <p>It is available in two places:</p>
 <ul>
 <li>The <strong>Shop by part</strong> section, on its own.</li>
@@ -284,8 +285,13 @@ Model A3 | model-a3</code></pre>
 <div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Options and notes</th></tr></thead><tbody><tr><td>View</td><td>Select</td><td>Exterior</td><td>Exterior / Interior.</td></tr><tr><td>Horizontal position</td><td>Range</td><td>50%</td><td>0&ndash;100%.</td></tr><tr><td>Vertical position</td><td>Range</td><td>50%</td><td>0&ndash;100%.</td></tr><tr><td>Part name</td><td>Text</td><td>&ldquo;Part name&rdquo;</td><td></td></tr><tr><td>Text</td><td>Rich text</td><td></td><td></td></tr><tr><td>Collection</td><td>Collection</td><td></td><td>Adds a &quot;Shop&quot; button. Without a collection or links, a search link for the part name is shown.</td></tr><tr><td>Link 1 label</td><td>Text</td><td></td><td></td></tr><tr><td>Link 1</td><td>Link</td><td></td><td></td></tr><tr><td>Link 2 label</td><td>Text</td><td></td><td></td></tr><tr><td>Link 2</td><td>Link</td><td></td><td></td></tr><tr><td>Link 3 label</td><td>Text</td><td></td><td></td></tr><tr><td>Link 3</td><td>Link</td><td></td><td></td></tr></tbody></table></div>
 
 <h2 id="fitment">The compatibility (fitment) block</h2>
-<p>Add <strong>Fitment check</strong> to the Product information section (it is in the default product template). It compares the shopper&rsquo;s saved selection with the product&rsquo;s tags and shows one of four messages:</p>
+<p>Add <strong>Fitment check</strong> to the Product information section (it is in the default product template, near the part number). It compares the shopper&rsquo;s saved selection with the product&rsquo;s tags and shows its verdict as a catalog stamp, a boxed uppercase label you can read across the room (FITS YOUR &hellip;, UNIVERSAL FIT, CHECK FIT or NOT CONFIRMED), with one of four messages:</p>
 <div class="table-wrap"><table><thead><tr><th scope="col">Message</th><th scope="col">When</th></tr></thead><tbody><tr><td><strong>Fits your Make A Model A1</strong></td><td>The product carries the selected tag or one of its parent tags.</td></tr><tr><td><strong>Universal fit</strong></td><td>The product carries your universal fit tag. A note asks shoppers to check sizes and specifications.</td></tr><tr><td><strong>Check compatibility &mdash; select your vehicle</strong></td><td>Nothing is saved yet. With <em>Show finder when nothing is selected</em> on, a compact finder with a <em>Check fit</em> button appears right in the block.</td></tr><tr><td><strong>Not confirmed for your &hellip;</strong></td><td>A selection is saved but the product has no matching tag. Shoppers are asked to check the details or contact you before ordering.</td></tr></tbody></table></div>
+<h3 id="fit-elsewhere">Fit in the cart and on product cards</h3>
+<ul>
+<li><strong>Cart</strong>: every line in the cart drawer and on the cart page repeats the check for that product (&ldquo;Fits your &hellip;&rdquo;, &ldquo;Universal fit&rdquo; or &ldquo;Not confirmed for your &hellip;&rdquo;). With <em>Add the shopper&rsquo;s selection to the order</em> on, the counter receipt under the lines shows the saved vehicle or device as a stamp.</li>
+<li><strong>Catalog plates and the parts table</strong>: the status dot shows your <em>Status badges from tags</em> rules or &ldquo;Universal fit&rdquo; for products with the universal tag, otherwise the stock state. Cards do not compare against the saved selection; use the finder results page for that.</li>
+</ul>
 <p>Settings: <strong>Heading</strong> (default &ldquo;Compatibility&rdquo;) and <strong>Show finder when nothing is selected</strong>. <em>Check fit</em> saves the selection without leaving the product page. Pair the block with a <a href="product-page.html#specs">specifications table</a> or a <a href="product-page.html#tabs">collapsible tab</a> listing compatible models, so shoppers can confirm the fit themselves.</p>
 
 <h2 id="shopper-view">What shoppers see</h2>
@@ -293,7 +299,8 @@ Model A3 | model-a3</code></pre>
 <li>On the home page or in the header, they choose <em>Make A</em>, then <em>Model A1</em>, then <em>2016</em>, and select <strong>Find parts</strong>.</li>
 <li>They land on &ldquo;Parts for Make A Model A1 2016&rdquo; with the matching products, filters and a link to universal-fit products.</li>
 <li>The header now shows &ldquo;My vehicle: Make A Model A1 2016&rdquo; with Change and Clear.</li>
-<li>Every product page shows whether the product fits, is universal, or is not confirmed.</li>
+<li>Every product page shows a stamp saying whether the product fits, is universal, or is not confirmed.</li>
+<li>In the cart, each line repeats the fit check, so a wrong part is easy to spot before checkout.</li>
 <li>The selection stays on their device for future visits until they change or clear it.</li>
 </ol>
 <p>If no product carries the selected tag yet, the results page says &ldquo;No products are listed for &hellip; yet&rdquo; and suggests a broader selection, universal-fit products or contacting you.</p>
@@ -310,7 +317,7 @@ Model A3 | model-a3</code></pre>
 </main>
 <footer class="site-footer">
 <div class="wrap">
-<p>Axlemark 1.1.0 &middot; Documentation by Axlemark theme support</p>
+<p>Axlemark 2.0.0 &middot; Documentation by Axlemark theme support</p>
 <ul>
 <li><a href="getting-started.html">Getting started</a></li>
 <li><a href="changelog.html">Changelog</a></li>
