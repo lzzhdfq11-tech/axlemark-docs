@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO and GEO (AI search) | Axlemark theme docs</title>
+<meta name="description" content="How the Axlemark Shopify theme handles SEO and GEO: meta tags, JSON-LD structured data, FAQ and buying guide content, llms.txt and AI visibility practices.">
+<link rel="canonical" href="https://lzzhdfq11-tech.github.io/axlemark-docs/seo.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Axlemark theme documentation">
+<meta property="og:title" content="SEO and GEO (AI search)">
+<meta property="og:description" content="How the Axlemark Shopify theme handles SEO and GEO: meta tags, JSON-LD structured data, FAQ and buying guide content, llms.txt and AI visibility practices.">
+<meta property="og:url" content="https://lzzhdfq11-tech.github.io/axlemark-docs/seo.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SEO and GEO (AI search)">
+<meta name="twitter:description" content="How the Axlemark Shopify theme handles SEO and GEO: meta tags, JSON-LD structured data, FAQ and buying guide content, llms.txt and AI visibility practices.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/nav.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap">
+<div class="site-nav-row">
+<a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor" style="color:var(--accent)"/><circle cx="16" cy="16" r="8.5" fill="none" stroke="var(--bg)" stroke-width="3"/><circle cx="16" cy="16" r="2.6" fill="var(--bg)"/><path d="M16 4.5v5M16 22.5v5M4.5 16h5M22.5 16h5" stroke="var(--bg)" stroke-width="3" stroke-linecap="round"/></svg>Axlemark <span>docs</span></a>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-list">Menu</button>
+</div>
+<nav class="site-nav" aria-label="Documentation">
+<ul id="site-nav-list"><li><a href="index.html">Overview</a></li><li><a href="getting-started.html">Getting started</a></li><li><a href="product-finder.html">Product finder</a></li><li><a href="sections.html">Sections</a></li><li><a href="product-page.html">Product page</a></li><li><a href="seo.html" aria-current="page">SEO &amp; GEO</a></li><li><a href="faq.html">FAQ</a></li><li><a href="compare.html">Compare</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="support.html">Support</a></li></ul>
+</nav>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="wrap">
+<p class="breadcrumb"><a href="index.html">Docs</a> <span aria-hidden="true">/</span> SEO and GEO</p><div class="doc doc--toc"><nav class="toc" aria-label="On this page"><details class="toc-details" open><summary class="toc-title">On this page</summary><ol><li><a href="#titles">Titles and meta descriptions</a></li><li><a href="#canonical">Canonical URLs and indexing</a></li><li><a href="#social">Social sharing tags</a></li><li><a href="#structured-data">Structured data (JSON-LD)</a></li><li><a href="#store-details">Theme settings: Store details</a></li><li><a href="#turn-off">Turning structured data off</a></li><li><a href="#geo">What GEO means</a></li><li><a href="#geo-features">How features help AI answers</a></li><li><a href="#llms-txt">llms.txt and Shopify</a></li><li><a href="#geo-checklist">Recommended practices</a></li><li><a href="#performance">Performance and accessibility</a></li></ol></details></nav><article class="doc-body">
+<h1>SEO and GEO</h1>
+<p class="lead">Axlemark outputs clean titles, canonical URLs, social sharing tags and schema.org structured data from your own store data, and gives you content sections (FAQ, buying guides, brand directory, specifications tables) that search engines and AI assistants can read and cite. This page explains what is output, which settings control it, and how to be understood by search engines and generative AI.</p>
+
+<h2 id="titles">Titles and meta descriptions</h2>
+<ul>
+<li><strong>Page title</strong>: the SEO title you set on each product, collection, page or article (<em>Search engine listing</em> in your admin), followed by your store name when the title does not already contain it. Tag-filtered pages add the tags and paginated pages add &ldquo;Page 2&rdquo;, so every URL has a unique title.</li>
+<li><strong>Meta description</strong>: the SEO description from the same place. For the home page, set it in <em>Online Store &rarr; Preferences</em>.</li>
+</ul>
+
+<h2 id="canonical">Canonical URLs and indexing</h2>
+<ul>
+<li>Every page has a canonical link from Shopify, so product URLs inside collections point to the main product URL.</li>
+<li><code>noindex, follow</code> is added to pages that should not appear in search results: search results, the 404 page, the cart, collections with a sort order in the URL and empty collections.</li>
+<li>Gift card pages are never indexed.</li>
+</ul>
+
+<h2 id="social">Social sharing tags</h2>
+<p>Each page outputs <code>og:title</code>, <code>og:description</code>, <code>og:url</code>, <code>og:type</code>, <code>og:locale</code> and a 1200px image with alt text, plus matching <code>twitter:</code> meta tags for social cards.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Page type</th><th scope="col">Image used</th><th scope="col">Extra tags</th></tr></thead><tbody><tr><td>Product</td><td>Featured media</td><td><code>og:type</code> product, price and currency</td></tr><tr><td>Collection</td><td>Collection image</td><td>&mdash;</td></tr><tr><td>Article</td><td>Article image</td><td><code>og:type</code> article, published and modified time, tags</td></tr><tr><td>Other pages</td><td>Social sharing image from <em>Online Store &rarr; Preferences</em></td><td>&mdash;</td></tr></tbody></table></div>
+
+<h2 id="structured-data">Structured data (JSON-LD)</h2>
+<p>Structured data is machine-readable information, in the schema.org vocabulary, that tells search engines and AI assistants exactly what a page is about: your store, a product with its price and availability, a guide, or a set of questions and answers. Axlemark outputs it as JSON-LD, using only your own store data:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Type</th><th scope="col">Where</th><th scope="col">Built from</th></tr></thead><tbody><tr><td><strong>OnlineStore</strong>, Store, AutoPartsStore, ElectronicsStore or Organization</td><td>Every page</td><td>Store name and URL, logo from <em>Settings &rarr; Brand</em>, store description, social links, customer service phone and email, opening hours (store types with a physical location) and the city, region and country from <em>Settings &rarr; Store details</em>.</td></tr><tr><td><strong>WebSite</strong> with <strong>SearchAction</strong></td><td>Every page</td><td>Store name, language and your search URL, so search engines can offer a search box for your store.</td></tr><tr><td><strong>BreadcrumbList</strong></td><td>Product, collection, blog, article and page</td><td>Home &rarr; collection &rarr; product, or Home &rarr; blog &rarr; article.</td></tr><tr><td><strong>Product</strong> / <strong>ProductGroup</strong></td><td>Product pages</td><td>Generated by Shopify from the product: title, description, images, variants, SKU, price, availability, brand (vendor). Products with variants are output as a ProductGroup.</td></tr><tr><td><strong>Article</strong></td><td>Blog posts</td><td>Generated by Shopify from the article.</td></tr><tr><td><strong>FAQPage</strong></td><td>Pages with an FAQ section</td><td>The FAQ section&rsquo;s questions and answers, when <em>Add FAQ structured data</em> is on.</td></tr></tbody></table></div>
+
+<h3 id="example-json-ld">Example: what the store and website data looks like</h3>
+<p>This is a shortened example of the JSON-LD printed on every page (values come from your store; empty fields are left out):</p>
+<pre><code>{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@graph&quot;: [
+    {
+      &quot;@type&quot;: &quot;AutoPartsStore&quot;,
+      &quot;@id&quot;: &quot;https://your-store.example/#store&quot;,
+      &quot;name&quot;: &quot;Your store&quot;,
+      &quot;url&quot;: &quot;https://your-store.example/&quot;,
+      &quot;logo&quot;: &quot;https://cdn.example/logo.png&quot;,
+      &quot;sameAs&quot;: [&quot;https://social.example/yourstore&quot;],
+      &quot;contactPoint&quot;: { &quot;@type&quot;: &quot;ContactPoint&quot;, &quot;contactType&quot;: &quot;customer service&quot;, &quot;telephone&quot;: &quot;+1 555 0100&quot; },
+      &quot;openingHours&quot;: &quot;Mo-Fr 09:00-17:00&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;WebSite&quot;,
+      &quot;@id&quot;: &quot;https://your-store.example/#website&quot;,
+      &quot;name&quot;: &quot;Your store&quot;,
+      &quot;inLanguage&quot;: &quot;en&quot;,
+      &quot;publisher&quot;: { &quot;@id&quot;: &quot;https://your-store.example/#store&quot; },
+      &quot;potentialAction&quot;: {
+        &quot;@type&quot;: &quot;SearchAction&quot;,
+        &quot;target&quot;: { &quot;@type&quot;: &quot;EntryPoint&quot;, &quot;urlTemplate&quot;: &quot;https://your-store.example/search?q={search_term_string}&quot; },
+        &quot;query-input&quot;: &quot;required name=search_term_string&quot;
+      }
+    }
+  ]
+}</code></pre>
+<p>The store and the website are linked with <code>@id</code>, so crawlers understand that the website is published by your store. Product pages add Shopify&rsquo;s own Product or ProductGroup data (with offers, SKU, brand and availability) and a BreadcrumbList.</p>
+
+<h2 id="store-details">Theme settings: Store details</h2>
+<p>Open <em>Theme settings &rarr; Store details</em>. Your store name, address and logo come from <em>Settings &rarr; Store details</em> and <em>Settings &rarr; Brand</em>.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Options and notes</th></tr></thead><tbody><tr><td>Customer service phone</td><td>Text</td><td></td><td></td></tr><tr><td>Customer service email</td><td>Text</td><td></td><td>Shown in structured data only when filled in.</td></tr><tr><td>Customer service hours</td><td>Multi-line text</td><td></td><td>Example: Mo-Fr 09:00-17:00.</td></tr><tr><td>Business type</td><td>Select</td><td>Online store</td><td>Online store / Store with a physical location / Auto parts store / Electronics store / Organization.</td></tr><tr class="subhead"><td colspan="4">Search engines</td></tr><tr><td>Add structured data</td><td>Checkbox</td><td>On</td><td>Turn off if an app already adds product and store structured data.</td></tr><tr><td>Part number metafield</td><td>Text</td><td></td><td>Optional, format namespace.key. Shown as part number on product pages.</td></tr></tbody></table></div>
+<ul>
+<li><strong>Business type</strong>: choose <em>Auto parts store</em> or <em>Electronics store</em> when you have a physical location of that kind, <em>Store with a physical location</em> for other shops, and <em>Online store</em> (default) when you sell online only.</li>
+<li><strong>Customer service hours</strong>: one range per line in the format <code>Mo-Fr 09:00-17:00</code>. Hours are added to structured data only for the store types with a physical location. They also show in the footer Contact details block.</li>
+<li><strong>Part number metafield</strong>: for example <code>custom.part_number</code>. The part number is shown next to the SKU in the <em>SKU and part number</em> product block.</li>
+</ul>
+
+<h2 id="turn-off">Turning structured data off</h2>
+<p>If an SEO or reviews app already adds store and product structured data, two copies can confuse search engines. Uncheck <em>Theme settings &rarr; Store details &rarr; Add structured data</em>. This removes the store, website, breadcrumb, product and article JSON-LD.</p>
+<p>FAQ structured data is controlled separately in each FAQ section with <strong>Add FAQ structured data</strong>. Keep it on in only one FAQ section per page, and turn it off if an app adds FAQ data for the same page.</p>
+<div class="note"><strong>Check your markup</strong><p>After changes, test a product page, a collection and the home page in a rich results or schema validation tool and fix any warnings about missing product data.</p></div>
+
+<h2 id="geo">What GEO means for a parts store</h2>
+<p>Generative engine optimization (GEO) is the practice of making your store easy for AI assistants and AI search features, such as chat assistants, answer engines, AI overviews in search results and Shopify&rsquo;s own AI tools, to understand correctly, quote and recommend. These systems read the same pages, structured data and product data as search engines, then summarize them into an answer. For a parts store the questions are concrete: &ldquo;Which brake pads fit a 2016 Model A1?&rdquo;, &ldquo;Which toner works with a P200 printer?&rdquo;, &ldquo;Who stocks Brand B filters?&rdquo;. An assistant can only answer with your store if your pages state those facts clearly, in text, on crawlable URLs.</p>
+<p>There is no special markup that guarantees AI visibility. What works is the same as good SEO: accurate, specific, consistent information that is easy to extract.</p>
+
+<h2 id="geo-features">How Axlemark features help AI answers</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Feature</th><th scope="col">What it gives search engines and AI assistants</th></tr></thead><tbody>
+<tr><td><strong>FAQ section</strong></td><td>Questions and answers in plain HTML plus <strong>FAQPage</strong> JSON-LD. Short, self-contained answers are the easiest content for an assistant to quote. Use it on the home page, key collections and policy pages.</td></tr>
+<tr><td><strong>Buying guides</strong> (blog posts)</td><td>&ldquo;Products in this guide&rdquo; links each guide to the exact products it discusses, by an article metafield or a tag that matches a collection, and Shopify adds <strong>Article</strong> data. This connects advice to products, so a recommendation can point to something a shopper can buy. Related posts from the same blog add internal links between guides.</td></tr>
+<tr><td><strong>Brand directory</strong></td><td>A crawlable A&ndash;Z page that lists every brand (product vendor) you stock and links each one to its collection or vendor listing. It answers &ldquo;who sells this brand?&rdquo; with one clear page. It adds no extra structured data; the product data on each product carries the brand.</td></tr>
+<tr><td><strong>Specifications table</strong></td><td>Dimensions, ratings, materials and compatible models from a metafield, shown as a real HTML table that is easy to extract and compare.</td></tr>
+<tr><td><strong>Fitment check and finder</strong></td><td>The finder and the fit check use tags, which shoppers and crawlers do not see. Repeat the compatible models in visible text (a specifications table or collapsible tab) so the fitment information is also readable on the page.</td></tr>
+<tr><td><strong>Product and breadcrumb data</strong></td><td>Product or ProductGroup JSON-LD with price, availability, SKU and brand, plus a BreadcrumbList showing where the product sits in your catalog.</td></tr>
+<tr><td><strong>Store and website data</strong></td><td>Your store type (for example AutoPartsStore or ElectronicsStore), contact details, hours, social profiles and site search, so your business is described the same way everywhere.</td></tr>
+<tr><td><strong>Clean, fast HTML</strong></td><td>Server-rendered content with no frameworks, real headings and lists, and few scripts. Crawlers that do not run JavaScript still see the full page.</td></tr>
+</tbody></table></div>
+
+<h2 id="llms-txt">llms.txt and Shopify</h2>
+<p><code>llms.txt</code> is a proposed plain-text file at the root of a website that gives AI tools a short, link-rich summary of the site. Shopify can serve one for your store at <code>/llms.txt</code>; it is generated by Shopify, not by the theme, so Axlemark does not change it. Open <code>/llms.txt</code> on your store in a browser to see what it contains. Since it reflects your store description, policies, collections and products, the way to improve it is to keep that admin data complete and up to date.</p>
+<p>This documentation site has its own <a href="llms.txt">llms.txt</a> describing the Axlemark theme.</p>
+
+<h2 id="geo-checklist">Recommended practices for merchants</h2>
+<ol class="steps">
+<li><strong>Write specific product titles</strong>: part type, position and key size, for example &ldquo;Front brake pads, ceramic, 4-piece set&rdquo;, not just a part number.</li>
+<li><strong>Complete product data</strong>: description, vendor (brand), product type and Shopify product category, SKU, barcode where you have one, weight and real availability.</li>
+<li><strong>State compatibility in text</strong>: list compatible vehicles, devices or printers in a specifications table or collapsible tab, in addition to the finder tags.</li>
+<li><strong>Use metafields for specifications</strong> and show them with the Specifications table block, so values are consistent across products.</li>
+<li><strong>Answer real questions</strong> in FAQ sections (fitment, returns, shipping times, warranty), with FAQ structured data on in one FAQ section per page.</li>
+<li><strong>Publish buying guides</strong> that explain how to choose a part, and connect them to products with the <code>custom.related_products</code> metafield or a collection tag.</li>
+<li><strong>Keep a brands page</strong> using the brands page template, with featured brand blocks for your main lines.</li>
+<li><strong>Fill in store details</strong>: store description, logo, address, phone, email, hours, business type and social links, and use the same name and details everywhere you are listed.</li>
+<li><strong>Keep policies clear</strong>: shipping, returns and warranty pages in plain language, since assistants often quote them.</li>
+<li><strong>Avoid duplicate structured data</strong>: if an app adds the same types, turn off the theme&rsquo;s structured data or the app&rsquo;s, not both.</li>
+<li><strong>Check regularly</strong>: test pages in a rich results or schema validation tool, look at your store&rsquo;s <code>/llms.txt</code>, and ask an AI assistant questions about your products to see how your store is described.</li>
+</ol>
+
+<h2 id="performance">Performance and accessibility</h2>
+<p>Axlemark loads no JavaScript frameworks, no jQuery and no external fonts or scripts. The shared theme CSS and JavaScript on the home page come to about 35 KB with gzip compression; section styles and scripts load only where those sections are used. Images are responsive and lazy loaded below the fold, and the first large image loads with high priority. Menus, drawers, the finder and dialogs work with the keyboard, keep focus visible and respect reduced-motion preferences. Fast, accessible pages are easier for every crawler to read. To keep your store fast:</p>
+<ul>
+<li>Upload images at the size they are shown (a hero around 2400px wide is plenty). The theme creates responsive sizes and lazy loads images below the fold.</li>
+<li>Keep the first section light: one hero image rather than a video on mobile, and avoid autoplaying carousels at the top.</li>
+<li>Remove apps you no longer use. Leftover app scripts are the most common cause of slow stores.</li>
+<li>Use system fonts or a single font family to cut font downloads.</li>
+<li>Keep the finder JSON file lean, with only the fields you need.</li>
+<li>Limit the number of home page sections and products per grid to what shoppers actually use.</li>
+<li>Watch the web performance report in <em>Analytics</em> and test key pages on a phone.</li>
+</ul>
+</article></div>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap">
+<p>Axlemark 1.1.0 &middot; Documentation by Axlemark theme support</p>
+<ul>
+<li><a href="getting-started.html">Getting started</a></li>
+<li><a href="changelog.html">Changelog</a></li>
+<li><a href="support.html">Support</a></li>
+<li><a href="https://themes.shopify.com/themes?q=axlemark">Theme Store listing</a></li>
+</ul>
+</div>
+</footer>
+</body>
+</html>

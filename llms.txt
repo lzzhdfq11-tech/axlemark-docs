@@ -1,0 +1,40 @@
+# Axlemark Shopify theme
+
+> Axlemark is a Shopify theme for large-catalog auto parts, tech, electronics and IT accessories stores. It has a built-in vehicle and device product finder with a fit check on product pages, so stores do not need a finder app. Two presets: "Axlemark" for auto parts (Make / Model / Year) and "Signal" for tech accessories (Brand / Device). Current version: 1.1.0. One-time price on the Shopify Theme Store: USD 360.
+
+## Key facts
+
+- Product finder: 1 to 3 cascading levels (Year / Make / Model, Brand / Device, Brand / Series / Printer model, or tire size). Products match by product tags; finder data comes from section blocks or a JSON file in Shopify Content > Files. No app needed.
+- Saved vehicle or device in the header, a finder results collection template, and a Fitment check block on product pages ("Fits your ...", "Universal fit", "Not confirmed"). Fit is never claimed without a matching tag.
+- Size finder: dropdowns (for example tire width / profile / rim) built from product tags such as tyre-205-55-r16.
+- Shop-by-part vehicle diagram: hatchback, sedan, SUV and pickup drawings with exterior and interior hotspots.
+- Split hero with finder card, popular links, part-number search examples and category tiles or the vehicle diagram.
+- Two header layouts, including a Categories button that opens a catalog mega menu with category images, plus a second-row link bar.
+- Predictive search with product thumbnails, highlighted matches, vendor and price.
+- Collection spotlight with tag filter chips; brand rails, brand wall and an A-Z brand directory page.
+- Product cards: quick add, swatches, ratings, status badges from tags, unit label, shipping notes, product page button, optional incl./excl. tax label and switch.
+- Product page: variant swatches, combined listings, accelerated checkout, subscriptions, gift card recipient form, pickup availability, specifications table from metafields, collapsible tabs, complementary products, share.
+- Business buyers: quick order page (order many parts by SKU or barcode) and a trade account application page.
+- Buying guides: "Products in this guide" from an article metafield or matching collection tag, plus related posts.
+- SEO: JSON-LD for Organization or store type, WebSite with SearchAction, BreadcrumbList, Product/ProductGroup, Article, and FAQPage from the FAQ section; canonical, Open Graph and X (Twitter) tags.
+- Performance and accessibility: no frameworks or external scripts, about 35 KB gzip of shared theme CSS and JavaScript on the home page, keyboard-accessible menus and drawers.
+- 16 languages: English, German, French, Spanish, Italian, Dutch, Portuguese (Portugal), Danish, Swedish, Polish, Czech, Finnish, Norwegian Bokmal, Japanese, Korean, Simplified Chinese. Five color schemes and a font picker.
+
+## Documentation
+
+- [Overview](https://lzzhdfq11-tech.github.io/axlemark-docs/): What the theme is, presets and all features
+- [Getting started](https://lzzhdfq11-tech.github.io/axlemark-docs/getting-started.html): Install, presets, menus, logo, color schemes, typography, cart, publish checklist
+- [Product finder](https://lzzhdfq11-tech.github.io/axlemark-docs/product-finder.html): Tagging, data sources, JSON examples for vehicles, devices, printers and tire sizes, size finder, vehicle diagram, results template, fit check
+- [Sections reference](https://lzzhdfq11-tech.github.io/axlemark-docs/sections.html): Every section and its settings
+- [Product page](https://lzzhdfq11-tech.github.io/axlemark-docs/product-page.html): Every product block, product card options and the tax label
+- [SEO and GEO](https://lzzhdfq11-tech.github.io/axlemark-docs/seo.html): Meta tags, structured data, AI search visibility, llms.txt and recommended practices
+- [FAQ](https://lzzhdfq11-tech.github.io/axlemark-docs/faq.html): Common merchant questions
+- [Compare](https://lzzhdfq11-tech.github.io/axlemark-docs/compare.html): Axlemark vs. a free theme plus a finder app
+- [Changelog](https://lzzhdfq11-tech.github.io/axlemark-docs/changelog.html): Release notes
+- [Support](https://lzzhdfq11-tech.github.io/axlemark-docs/support.html): How to contact Axlemark theme support
+
+## Links
+
+- [Shopify Theme Store listing](https://themes.shopify.com/themes?q=axlemark)
+- [Axlemark preset demo](https://axlemark-demo-krp8qvpn.myshopify.com)
+- [Signal preset demo](https://signal-demo-7e4vkc07.myshopify.com)

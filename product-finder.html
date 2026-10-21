@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product finder guide | Axlemark theme docs</title>
+<meta name="description" content="Set up the Axlemark product finder for vehicles, devices or printers, plus the tag-based size finder, the shop-by-part diagram and the product page fit check.">
+<link rel="canonical" href="https://lzzhdfq11-tech.github.io/axlemark-docs/product-finder.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Axlemark theme documentation">
+<meta property="og:title" content="Product finder guide">
+<meta property="og:description" content="Set up the Axlemark product finder for vehicles, devices or printers, plus the tag-based size finder, the shop-by-part diagram and the product page fit check.">
+<meta property="og:url" content="https://lzzhdfq11-tech.github.io/axlemark-docs/product-finder.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Product finder guide">
+<meta name="twitter:description" content="Set up the Axlemark product finder for vehicles, devices or printers, plus the tag-based size finder, the shop-by-part diagram and the product page fit check.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/nav.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap">
+<div class="site-nav-row">
+<a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor" style="color:var(--accent)"/><circle cx="16" cy="16" r="8.5" fill="none" stroke="var(--bg)" stroke-width="3"/><circle cx="16" cy="16" r="2.6" fill="var(--bg)"/><path d="M16 4.5v5M16 22.5v5M4.5 16h5M22.5 16h5" stroke="var(--bg)" stroke-width="3" stroke-linecap="round"/></svg>Axlemark <span>docs</span></a>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-list">Menu</button>
+</div>
+<nav class="site-nav" aria-label="Documentation">
+<ul id="site-nav-list"><li><a href="index.html">Overview</a></li><li><a href="getting-started.html">Getting started</a></li><li><a href="product-finder.html" aria-current="page">Product finder</a></li><li><a href="sections.html">Sections</a></li><li><a href="product-page.html">Product page</a></li><li><a href="seo.html">SEO &amp; GEO</a></li><li><a href="faq.html">FAQ</a></li><li><a href="compare.html">Compare</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="support.html">Support</a></li></ul>
+</nav>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<div class="wrap">
+<p class="breadcrumb"><a href="index.html">Docs</a> <span aria-hidden="true">/</span> Product finder guide</p><div class="doc doc--toc"><nav class="toc" aria-label="On this page"><details class="toc-details" open><summary class="toc-title">On this page</summary><ol><li><a href="#concept">How it works</a></li><li><a href="#theme-settings">Theme settings</a></li><li><a href="#tagging">Tag your products</a></li><li><a href="#data-sources">Add your data: two options</a></li><li><a href="#json-format">JSON format</a></li><li><a href="#results-template">Results page: the finder template</a></li><li><a href="#where-it-appears">Where the finder appears</a></li><li><a href="#size-finder">Size finder</a></li><li><a href="#vehicle-diagram">Shop-by-part vehicle diagram</a></li><li><a href="#fitment">The compatibility (fitment) block</a></li><li><a href="#shopper-view">What shoppers see</a></li><li><a href="#csv">Converting a spreadsheet to JSON</a></li><li><a href="#finder-faq">Finder FAQ</a></li></ol></details></nav><article class="doc-body">
+<h1>Product finder</h1>
+<p class="lead">The Axlemark product finder is a built-in compatibility selector: shoppers pick what they own, such as a vehicle, a phone, a printer or a tire size, in up to three dropdowns and see only the products tagged to fit it. The choice is remembered, shown in the header and checked on every product page. This guide also covers the tag-based size finder and the shop-by-part vehicle diagram.</p>
+
+<h2 id="concept">How it works</h2>
+<p>The finder is driven by <strong>product tags</strong>. Every entry in your finder list has a tag. A product fits an entry when the product carries that tag, or the tag of an entry above it.</p>
+<figure class="diagram">
+<svg viewBox="0 0 760 250" role="img" aria-labelledby="tree-title tree-desc">
+<title id="tree-title">Finder entries and product tags</title>
+<desc id="tree-desc">Make A has the tag make-a and two models, Model A1 tagged model-a1 and Model A2 tagged model-a2. A product tagged model-a1 fits Model A1. A product tagged make-a fits every model of Make A. A product tagged universal-fit shows Universal fit.</desc>
+<defs><marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="d-arrow" d="M0 0L10 5L0 10z"/></marker></defs>
+<text class="d-text d-text--muted" x="10" y="20">Finder data</text>
+<rect class="d-box d-box--accent" x="10" y="32" width="200" height="56" rx="10"/>
+<text class="d-text d-text--bold" x="26" y="56">Make A</text>
+<text class="d-text d-text--mono" x="26" y="76">make-a</text>
+<rect class="d-box" x="60" y="120" width="180" height="56" rx="10"/>
+<text class="d-text d-text--bold" x="76" y="144">Model A1</text>
+<text class="d-text d-text--mono" x="76" y="164">model-a1</text>
+<rect class="d-box" x="60" y="186" width="180" height="56" rx="10"/>
+<text class="d-text d-text--bold" x="76" y="210">Model A2</text>
+<text class="d-text d-text--mono" x="76" y="230">model-a2</text>
+<path class="d-line" d="M34 88V214H58M34 148H58"/>
+<text class="d-text d-text--muted" x="420" y="20">Product tags &rarr; result for a shopper with Model A1 saved</text>
+<rect class="d-box" x="420" y="32" width="330" height="56" rx="10"/>
+<text class="d-text" x="436" y="56">Tag <tspan class="d-text--mono">model-a1</tspan></text>
+<text class="d-text d-text--muted" x="436" y="76">Fits your Make A Model A1</text>
+<rect class="d-box" x="420" y="104" width="330" height="56" rx="10"/>
+<text class="d-text" x="436" y="128">Tag <tspan class="d-text--mono">make-a</tspan> (parent entry)</text>
+<text class="d-text d-text--muted" x="436" y="148">Fits every model of Make A</text>
+<rect class="d-box" x="420" y="176" width="330" height="56" rx="10"/>
+<text class="d-text" x="436" y="200">Tag <tspan class="d-text--mono">universal-fit</tspan></text>
+<text class="d-text d-text--muted" x="436" y="220">Universal fit</text>
+<path class="d-line" d="M244 148H414" marker-end="url(#arr2)"/>
+</svg>
+<figcaption>A product fits an entry when it carries that entry&rsquo;s tag or the tag of an entry above it.</figcaption>
+</figure>
+<ul>
+<li><strong>Levels</strong>: one to three, for example <em>Make &rarr; Model &rarr; Year</em>, <em>Brand &rarr; Device &rarr; Generation</em>, <em>Brand &rarr; Series &rarr; Printer model</em> or <em>Width &rarr; Profile &rarr; Rim</em>.</li>
+<li><strong>Results</strong>: after choosing, shoppers land on the results collection filtered by the deepest selected tag.</li>
+<li><strong>Saved selection</strong>: stored on the shopper&rsquo;s device and shown as &ldquo;My vehicle: &hellip;&rdquo; in the header, with Change and Clear.</li>
+<li><strong>Fit check</strong>: the Fitment check block on product pages compares the saved selection with the product&rsquo;s tags.</li>
+</ul>
+
+<h2 id="theme-settings">Theme settings</h2>
+<p>Open <em>Online Store &rarr; Themes &rarr; Customize &rarr; Theme settings &rarr; Product finder</em>.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Options and notes</th></tr></thead><tbody><tr><td>Enable product finder</td><td>Checkbox</td><td>On</td><td></td></tr><tr><td>What shoppers select</td><td>Text</td><td>&ldquo;vehicle&rdquo;</td><td>Lowercase noun used in messages, e.g. vehicle, device, printer.</td></tr><tr><td>Finder data file URL</td><td>Link</td><td></td><td>Optional. Upload the file in Content → Files and paste the file&#x27;s Shopify URL. For small lists use the Product finder section blocks instead.</td></tr><tr><td>First level label</td><td>Text</td><td>&ldquo;Make&rdquo;</td><td></td></tr><tr><td>Second level label</td><td>Text</td><td>&ldquo;Model&rdquo;</td><td></td></tr><tr><td>Third level label</td><td>Text</td><td>&ldquo;Year&rdquo;</td><td>Leave blank to use two levels only.</td></tr><tr><td>Results collection</td><td>Collection</td><td></td><td>Where shoppers land after choosing. Default: all products.</td></tr><tr><td>Universal fit tag</td><td>Text</td><td><code>universal-fit</code></td><td>Products with this tag show “Universal fit” on the product page.</td></tr><tr><td>Show saved selection in header</td><td>Checkbox</td><td>On</td><td></td></tr></tbody></table></div>
+<p>The number of levels follows the labels: leave <strong>Third level label</strong> blank for two levels, or both the second and third blank for one level. The Signal preset uses two levels (Brand / Device).</p>
+
+<h2 id="tagging">Tag your products</h2>
+<p>Add tags in <em>Products &rarr; (product) &rarr; Tags</em>, with the bulk editor, or with a CSV import.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Product tag</th><th scope="col">Result</th></tr></thead><tbody><tr><td><code>model-a1</code></td><td>Fits <strong>Model A1</strong>, all of its years.</td></tr><tr><td><code>make-a</code></td><td>Fits <strong>every model of Make A</strong> (a parent tag).</td></tr><tr><td><code>universal-fit</code> (your universal tag)</td><td>Shows <strong>Universal fit</strong> on the product page and is linked from every results page.</td></tr><tr><td>None of these</td><td>Shows a neutral <strong>Check compatibility</strong> or <strong>Not confirmed for your &hellip;</strong>. The theme never says a product fits without a matching tag.</td></tr></tbody></table></div>
+<ul>
+<li>Use lowercase letters, numbers and hyphens: <code>model-a1</code>, <code>brand-a</code>, <code>size-205-55-r16</code>.</li>
+<li>Tags are compared the way Shopify builds tag URLs, so <code>Model A1</code> and <code>model-a1</code> count as the same tag. Lowercase-hyphen tags are still recommended.</li>
+<li>A product that fits several vehicles or devices simply gets several tags.</li>
+<li>Tags are visible in your admin only; shoppers see the entry labels.</li>
+</ul>
+
+<h2 id="data-sources">Add your data: two options</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col"></th><th scope="col">A. Section blocks</th><th scope="col">B. JSON data file</th></tr></thead><tbody><tr><td>Best for</td><td>Small lists (a few dozen entries)</td><td>Large catalogs (hundreds or thousands of entries)</td></tr><tr><td>Where</td><td>Product finder section &rarr; Finder entry blocks</td><td>Content &rarr; Files, then Theme settings &rarr; Finder data file URL</td></tr><tr><td>Levels</td><td>Two, plus an optional year range for the third</td><td>Up to three, with children and/or years</td></tr><tr><td>Extras</td><td>Show in popular group</td><td>Popular group, custom result URL, label separator</td></tr></tbody></table></div>
+<div class="note"><strong>Which one is used where?</strong><p>If the Product finder section has entries, that section uses them. Everywhere else (header, product pages, results page) the data file is used. Without a data file, the header and product pages reuse the entries the shopper last saw in the Product finder section, so for small lists with no file, place that section on the home page.</p></div>
+
+<h3 id="option-a">Option A: section blocks</h3>
+<ol class="steps">
+<li>In the theme editor, add the <strong>Product finder</strong> section to your home page (the presets include it).</li>
+<li>Add one <strong>Finder entry</strong> block per first-level item, for example <em>Make A</em>.</li>
+<li>Fill in <strong>Label</strong>, <strong>Product tag</strong> (blank means a tag is made from the label, so <em>Make A</em> becomes <code>make-a</code>) and <strong>Second level</strong>.</li>
+</ol>
+<p><strong>Second level</strong> takes one line per item, <code>Label | tag | years</code>. Years are optional:</p>
+<pre><code>Model A1 | model-a1 | 2010-2018
+Model A2 | model-a2 | 2016-
+Model A3 | model-a3</code></pre>
+<p><code>2016-</code> means &ldquo;2016 to the current year&rdquo;. When an item has years and a third level label is set, the third dropdown lists those years. A blank tag is made from the label.</p>
+
+<h3 id="option-b">Option B: JSON data file</h3>
+<ol class="steps">
+<li>Create a <code>.json</code> file in the format below (or convert a spreadsheet, see <a href="#csv">Converting a spreadsheet</a>).</li>
+<li>Upload it in <em>Content &rarr; Files</em> and copy the file&rsquo;s URL.</li>
+<li>Paste it into <em>Theme settings &rarr; Product finder &rarr; Finder data file URL</em> and save.</li>
+</ol>
+<div class="note note--warn"><strong>Use a Shopify Files URL</strong><p>The URL must be the address Shopify gives the file in <em>Content &rarr; Files</em>, or a file served from your own store domain. Addresses on other websites are ignored for security, and the finder then shows &ldquo;The list could not be loaded&rdquo;.</p></div>
+<p>Shoppers&rsquo; browsers keep the file for the current visit. When you change it, upload it again under a new name and update the URL.</p>
+
+<h2 id="json-format">JSON format</h2>
+<p>The file is a list of first-level entries. Each entry can have <code>children</code> (the next level) and/or <code>years</code>.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Field</th><th scope="col">Required</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>label</code></td><td>Yes</td><td>Text shown in the dropdown.</td></tr><tr><td><code>tag</code></td><td>Yes*</td><td>Product tag for this entry (lowercase letters, numbers and hyphens). *An entry without a tag can still be chosen, but shoppers are sent to the tag of the entry above it.</td></tr><tr><td><code>children</code></td><td>No</td><td>Entries for the next level. Up to three levels in total; deeper levels are ignored.</td></tr><tr><td><code>years</code></td><td>No</td><td><code>[from, to]</code>. <code>null</code> as <code>to</code> means &ldquo;until now&rdquo;. Used for the next level when there are no children. Years are for display and the saved label; matching uses tags.</td></tr><tr><td><code>url</code></td><td>No</td><td>Send shoppers to this page instead of the tag results, for example a dedicated collection.</td></tr><tr><td><code>popular</code></td><td>No</td><td>First level only: also listed in a &ldquo;Popular&rdquo; group at the top of the dropdown.</td></tr></tbody></table></div>
+
+<h3 id="example-vehicles">Example: vehicles (Make / Model / Year)</h3>
+<pre><code>[
+  {
+    &quot;label&quot;: &quot;Make A&quot;,
+    &quot;tag&quot;: &quot;make-a&quot;,
+    &quot;popular&quot;: true,
+    &quot;children&quot;: [
+      { &quot;label&quot;: &quot;Model A1&quot;, &quot;tag&quot;: &quot;model-a1&quot;, &quot;years&quot;: [2010, 2018] },
+      { &quot;label&quot;: &quot;Model A2&quot;, &quot;tag&quot;: &quot;model-a2&quot;, &quot;years&quot;: [2016, null] }
+    ]
+  },
+  {
+    &quot;label&quot;: &quot;Make B&quot;,
+    &quot;tag&quot;: &quot;make-b&quot;,
+    &quot;children&quot;: [
+      { &quot;label&quot;: &quot;Model B1&quot;, &quot;tag&quot;: &quot;model-b1&quot;, &quot;years&quot;: [2012, 2020] },
+      { &quot;label&quot;: &quot;Model B2&quot;, &quot;tag&quot;: &quot;model-b2&quot;, &quot;url&quot;: &quot;/collections/model-b2-parts&quot; }
+    ]
+  }
+]</code></pre>
+<p>Model B2 sends shoppers to its own collection through <code>url</code>.</p>
+
+<h3 id="example-devices">Example: devices (Brand / Device / Generation)</h3>
+<p>Set the level labels to <em>Brand</em>, <em>Device</em> and <em>Generation</em>, and <strong>What shoppers select</strong> to <em>device</em>. Entries without children (Tablet 10, Watch S) end at the second level.</p>
+<pre><code>[
+  {
+    &quot;label&quot;: &quot;Brand A&quot;,
+    &quot;tag&quot;: &quot;brand-a&quot;,
+    &quot;popular&quot;: true,
+    &quot;children&quot;: [
+      {
+        &quot;label&quot;: &quot;Phone X&quot;,
+        &quot;tag&quot;: &quot;phone-x&quot;,
+        &quot;children&quot;: [
+          { &quot;label&quot;: &quot;1st generation&quot;, &quot;tag&quot;: &quot;phone-x-gen-1&quot; },
+          { &quot;label&quot;: &quot;2nd generation&quot;, &quot;tag&quot;: &quot;phone-x-gen-2&quot; }
+        ]
+      },
+      { &quot;label&quot;: &quot;Tablet 10&quot;, &quot;tag&quot;: &quot;tablet-10&quot; }
+    ]
+  },
+  {
+    &quot;label&quot;: &quot;Brand B&quot;,
+    &quot;tag&quot;: &quot;brand-b&quot;,
+    &quot;children&quot;: [
+      { &quot;label&quot;: &quot;Watch S&quot;, &quot;tag&quot;: &quot;watch-s&quot; }
+    ]
+  }
+]</code></pre>
+<p>For two levels only (the Signal preset), leave out the generation <code>children</code> and clear the third level label.</p>
+
+<h3 id="example-printers">Example: printers and IT devices (Brand / Series / Model)</h3>
+<p>The same format works for ink, toner, drums, batteries, memory and other parts that fit specific devices. Set the level labels to <em>Brand</em>, <em>Series</em> and <em>Model</em>, and <strong>What shoppers select</strong> to <em>printer</em>, so messages read &ldquo;My printer&rdquo; and &ldquo;Fits your printer&rdquo;. Tag each cartridge with every model it fits, for example <code>printer-p100</code> and <code>printer-p200</code>, or with a series tag such as <code>series-p</code> when it fits the whole series.</p>
+<pre><code>[
+  {
+    &quot;label&quot;: &quot;Brand A&quot;,
+    &quot;tag&quot;: &quot;printer-brand-a&quot;,
+    &quot;popular&quot;: true,
+    &quot;children&quot;: [
+      {
+        &quot;label&quot;: &quot;Series P&quot;,
+        &quot;tag&quot;: &quot;series-p&quot;,
+        &quot;children&quot;: [
+          { &quot;label&quot;: &quot;P100&quot;, &quot;tag&quot;: &quot;printer-p100&quot; },
+          { &quot;label&quot;: &quot;P200&quot;, &quot;tag&quot;: &quot;printer-p200&quot; }
+        ]
+      },
+      {
+        &quot;label&quot;: &quot;Series L&quot;,
+        &quot;tag&quot;: &quot;series-l&quot;,
+        &quot;children&quot;: [
+          { &quot;label&quot;: &quot;L50 laser&quot;, &quot;tag&quot;: &quot;printer-l50&quot; }
+        ]
+      }
+    ]
+  }
+]</code></pre>
+<p>For laptops, tablets or other devices, use the same pattern with labels such as <em>Brand / Product line / Model</em> and the noun <em>device</em> or <em>laptop</em>.</p>
+
+<h3 id="example-sizes">Example: tire sizes (Width / Profile / Rim)</h3>
+<p>Wrap the list in an object with a <code>separator</code> to control how the saved label is joined. Here it reads <strong>205 / 55 / R16</strong> instead of <strong>205 55 R16</strong>.</p>
+<pre><code>{
+  &quot;separator&quot;: &quot; / &quot;,
+  &quot;entries&quot;: [
+    {
+      &quot;label&quot;: &quot;205&quot;,
+      &quot;tag&quot;: &quot;width-205&quot;,
+      &quot;children&quot;: [
+        {
+          &quot;label&quot;: &quot;55&quot;,
+          &quot;tag&quot;: &quot;size-205-55&quot;,
+          &quot;children&quot;: [
+            { &quot;label&quot;: &quot;R16&quot;, &quot;tag&quot;: &quot;size-205-55-r16&quot; },
+            { &quot;label&quot;: &quot;R17&quot;, &quot;tag&quot;: &quot;size-205-55-r17&quot; }
+          ]
+        },
+        {
+          &quot;label&quot;: &quot;60&quot;,
+          &quot;tag&quot;: &quot;size-205-60&quot;,
+          &quot;children&quot;: [
+            { &quot;label&quot;: &quot;R16&quot;, &quot;tag&quot;: &quot;size-205-60-r16&quot; }
+          ]
+        }
+      ]
+    }
+  ]
+}</code></pre>
+
+<h2 id="results-template">Results page: the finder template</h2>
+<p>Shoppers are sent to <code>&lt;results collection&gt;/&lt;tag&gt;?view=finder</code>, for example <code>/collections/all/model-a1?view=finder</code>. The <code>view=finder</code> part loads the <strong>finder</strong> collection template, which Axlemark includes with two sections:</p>
+<ol>
+<li><strong>Finder results intro</strong>: shows &ldquo;Parts for Make A Model A1&rdquo;, the number of matching products, a <em>Change selection</em> control, a link to universal-fit products and an honest message when nothing is listed yet.</li>
+<li><strong>Collection products</strong>: the normal product grid with filters and sorting.</li>
+</ol>
+<p>To edit it, open the template picker in the theme editor and choose <em>Collections &rarr; finder</em>. If the template is missing (for example after deleting it), create a collection template named <strong>finder</strong> and add the Finder results intro section above the product grid. If you choose a real collection as the results collection, you can also assign the finder template to it.</p>
+<h3>Finder results intro settings</h3>
+<div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Options and notes</th></tr></thead><tbody><tr><td>Heading level</td><td>Select</td><td>H2</td><td>H1 / H2. Use H1 when the collection title is hidden on this template.</td></tr><tr><td>Show product count</td><td>Checkbox</td><td>On</td><td></td></tr><tr><td>Show &quot;Change selection&quot;</td><td>Checkbox</td><td>On</td><td></td></tr><tr><td>Show universal-fit link</td><td>Checkbox</td><td>On</td><td></td></tr></tbody></table></div>
+
+<h2 id="where-it-appears">Where the finder appears</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Place</th><th scope="col">How to control it</th></tr></thead><tbody><tr><td>Product finder section</td><td>Add it to any template. Settings: eyebrow, heading, subheading, Layout (Inline bar or Card), Alignment, and Quick link blocks.</td></tr><tr><td>Hero</td><td><em>Hero &rarr; Show product finder</em> places the finder on the hero image, with its own Finder color scheme.</td></tr><tr><td>Split hero</td><td><em>Split hero &rarr; Show product finder</em> shows the finder as a card in the left column, with Popular link chips and part-number search examples below it.</td></tr><tr><td>Header strip</td><td><em>Theme settings &rarr; Product finder &rarr; Show saved selection in header</em>. Shows a compact finder, or &ldquo;My vehicle: &hellip; &middot; Change&rdquo; once saved.</td></tr><tr><td>Product pages</td><td>The <strong>Fitment check</strong> block in Product information.</td></tr><tr><td>Results page</td><td>The Finder results intro section on the finder template.</td></tr></tbody></table></div>
+<h3>Product finder section</h3>
+<div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Options and notes</th></tr></thead><tbody><tr><td>Eyebrow text</td><td>Text</td><td></td><td></td></tr><tr><td>Heading</td><td>Text</td><td>&ldquo;Find parts for your vehicle&rdquo;</td><td></td></tr><tr><td>Heading size</td><td>Select</td><td>Medium</td><td>Small / Medium / Large.</td></tr><tr><td>Subheading</td><td>Rich text</td><td></td><td></td></tr><tr><td>Layout</td><td>Select</td><td>Card</td><td>Inline bar / Card.</td></tr><tr><td>Alignment</td><td>Select</td><td>Left</td><td>Left / Center.</td></tr><tr><td>Quick links heading</td><td>Text</td><td>&ldquo;Popular:&rdquo;</td><td></td></tr></tbody></table></div>
+<h4 id="block-product-finder-finder_entry">Finder entry</h4><p class="muted">Editor note: One first-level entry (e.g. a make or brand). When this section has entries, they are used instead of the data file.</p><div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Options and notes</th></tr></thead><tbody><tr><td>Label</td><td>Text</td><td>&ldquo;Make A&rdquo;</td><td></td></tr><tr><td>Product tag</td><td>Text</td><td></td><td>Products with this tag match the whole entry. Leave blank to use the label as a tag (e.g. &quot;make-a&quot;).</td></tr><tr><td>Second level</td><td>Multi-line text</td><td></td><td>One per line: Label | tag | years. Years are optional, e.g. &quot;Model A1 | model-a1 | 2010-2018&quot; or &quot;2019-&quot; for up to now.</td></tr><tr><td>Show in popular group</td><td>Checkbox</td><td>Off</td><td>Listed first in the dropdown.</td></tr></tbody></table></div><h4 id="block-product-finder-quick_link">Quick link</h4><div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Options and notes</th></tr></thead><tbody><tr><td>Label</td><td>Text</td><td>&ldquo;Popular selection&rdquo;</td><td></td></tr><tr><td>Link</td><td>Link</td><td></td><td>For example a results collection filtered by a tag, or a collection for a popular size.</td></tr></tbody></table></div>
+<p>Quick links add chips under the dropdowns, for example popular selections or sizes. Link each one to a tag page such as <code>/collections/all/model-a1</code>. The easiest way is to use the finder once and copy the address from your browser.</p>
+
+<h2 id="size-finder">Size finder</h2>
+<p>The <strong>Size finder</strong> section is a separate, tag-driven finder for products sold by size, such as tires, wheels, filters or batteries. Instead of a data file, it reads the product tags of one collection and turns every tag that matches a <strong>tag pattern</strong> into a valid size. Shoppers pick each part of the size in turn, only combinations that exist are offered, and the button opens the collection filtered by that tag.</p>
+<ol class="steps">
+<li>Tag each product with its size in one fixed format, for example <code>tyre-205-55-r16</code> for a 205/55R16 tire.</li>
+<li>Add the <strong>Size finder</strong> section, choose the collection that holds these products and enter the matching <strong>Tag pattern</strong>: <code>tyre-{1}-{2}-r{3}</code>. <code>{1}</code>, <code>{2}</code> and <code>{3}</code> are the size parts; the text between them must match your tags exactly.</li>
+<li>Set the labels for each part, for example <em>Width</em>, <em>Profile</em> and <em>Rim</em>. One to three parts are supported.</li>
+<li>Optionally add <strong>Popular size</strong> blocks (label and tag) for one-click chips, and a help link explaining where to find the size.</li>
+</ol>
+<div class="table-wrap"><table><thead><tr><th scope="col">Tag pattern</th><th scope="col">Matching tag</th><th scope="col">Dropdowns</th></tr></thead><tbody>
+<tr><td><code>tyre-{1}-{2}-r{3}</code></td><td><code>tyre-205-55-r16</code></td><td>Width 205 &rarr; Profile 55 &rarr; Rim 16</td></tr>
+<tr><td><code>wheel-{1}x{2}</code></td><td><code>wheel-17x7</code></td><td>Diameter 17 &rarr; Width 7</td></tr>
+<tr><td><code>battery-group-{1}</code></td><td><code>battery-group-48</code></td><td>Group size 48</td></tr>
+</tbody></table></div>
+<p>The popular size chips and the &ldquo;All&rdquo; link work without JavaScript. Use the Size finder for size-based products and the product finder for vehicles or devices; both can be on the same page.</p>
+<h3>Size finder settings</h3>
+<div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Options and notes</th></tr></thead><tbody><tr><td>Heading</td><td>Text</td><td>&ldquo;Find tires by size&rdquo;</td><td></td></tr><tr><td>Subheading</td><td>Text</td><td>&ldquo;Pick the size printed on your tire sidewall to see every matching tire.&rdquo;</td><td></td></tr><tr><td>Help link label</td><td>Text</td><td>&ldquo;How to read your tire size&rdquo;</td><td></td></tr><tr><td>Help link</td><td>Link</td><td></td><td></td></tr><tr class="subhead"><td colspan="4">Sizes</td></tr><tr><td>Collection</td><td>Collection</td><td></td><td>Sizes come from the product tags of this collection.</td></tr><tr><td>Tag pattern</td><td>Text</td><td>&ldquo;tyre-{1}-{2}-r{3}&rdquo;</td><td>Use {1}, {2} and {3} for the size parts, separated by fixed text. Example: tyre-{1}-{2}-r{3} matches the tag tyre-205-55-r16. One to three parts are supported.</td></tr><tr><td>Label for part 1</td><td>Text</td><td>&ldquo;Width&rdquo;</td><td></td></tr><tr><td>Label for part 2</td><td>Text</td><td>&ldquo;Profile&rdquo;</td><td></td></tr><tr><td>Label for part 3</td><td>Text</td><td>&ldquo;Rim&rdquo;</td><td></td></tr><tr><td>Button label</td><td>Text</td><td>&ldquo;Find tires&rdquo;</td><td></td></tr><tr><td>Example text</td><td>Rich text</td><td></td><td></td></tr><tr><td>Popular sizes heading</td><td>Text</td><td>&ldquo;Popular sizes&rdquo;</td><td></td></tr><tr><td>&quot;All&quot; link label</td><td>Text</td><td>&ldquo;All tires&rdquo;</td><td>Links to the whole collection. Leave empty to hide.</td></tr></tbody></table></div><h4>Popular size block</h4>
+<div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Options and notes</th></tr></thead><tbody><tr><td>Label</td><td>Text</td><td>&ldquo;205/55R16&rdquo;</td><td></td></tr><tr><td>Product tag</td><td>Text</td><td>&ldquo;tyre-205-55-r16&rdquo;</td><td>Opens the collection filtered by this tag.</td></tr></tbody></table></div>
+
+<h2 id="vehicle-diagram">Shop-by-part vehicle diagram</h2>
+<p>The vehicle diagram is an interactive line drawing that lets shoppers browse by where a part sits on the vehicle. They switch between <strong>hatchback, sedan, SUV and pickup</strong>, and between the <strong>exterior and interior</strong> views, then select a hotspot to open a panel with the part name, a short text and links to shop. It uses original artwork with no vehicle brands, works with the keyboard and needs no images from you.</p>
+<p>It is available in two places:</p>
+<ul>
+<li>The <strong>Shop by part</strong> section, on its own.</li>
+<li>The <strong>Split hero</strong> section with <em>Right column &rarr; Content</em> set to <em>Vehicle diagram</em> (the <em>Split hero with vehicle diagram</em> preset), next to the finder card.</li>
+</ul>
+<ol class="steps">
+<li>Choose which body styles to show and which one appears first. Turn off the interior view if you do not need it.</li>
+<li>Add a <strong>Hotspot</strong> block for each part area (up to 12), choose <em>Exterior</em> or <em>Interior</em>, and drag the horizontal and vertical position sliders until the dot sits on the part.</li>
+<li>Enter the part name and choose a collection for the <em>Shop</em> button, or add up to three links (for example front and rear brake pads). With no collection and no links, the hotspot links to a search for its part name.</li>
+</ol>
+<h3>Diagram settings (Shop by part section)</h3>
+<div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Options and notes</th></tr></thead><tbody><tr><td>Heading</td><td>Text</td><td>&ldquo;Shop by part&rdquo;</td><td></td></tr><tr><td>Heading size</td><td>Select</td><td>Medium</td><td>Small / Medium / Large.</td></tr><tr><td>Subheading</td><td>Rich text</td><td></td><td></td></tr><tr class="subhead"><td colspan="4">Vehicle diagram</td></tr><tr><td>Show interior view</td><td>Checkbox</td><td>On</td><td></td></tr><tr><td>Show hatchback</td><td>Checkbox</td><td>On</td><td></td></tr><tr><td>Show sedan</td><td>Checkbox</td><td>On</td><td></td></tr><tr><td>Show SUV</td><td>Checkbox</td><td>On</td><td></td></tr><tr><td>Show pickup</td><td>Checkbox</td><td>On</td><td></td></tr><tr><td>Body style shown first</td><td>Select</td><td>Sedan</td><td>Hatchback / Sedan / SUV / Pickup.</td></tr></tbody></table></div><h4>Hotspot block</h4>
+<div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Options and notes</th></tr></thead><tbody><tr><td>View</td><td>Select</td><td>Exterior</td><td>Exterior / Interior.</td></tr><tr><td>Horizontal position</td><td>Range</td><td>50%</td><td>0&ndash;100%.</td></tr><tr><td>Vertical position</td><td>Range</td><td>50%</td><td>0&ndash;100%.</td></tr><tr><td>Part name</td><td>Text</td><td>&ldquo;Part name&rdquo;</td><td></td></tr><tr><td>Text</td><td>Rich text</td><td></td><td></td></tr><tr><td>Collection</td><td>Collection</td><td></td><td>Adds a &quot;Shop&quot; button. Without a collection or links, a search link for the part name is shown.</td></tr><tr><td>Link 1 label</td><td>Text</td><td></td><td></td></tr><tr><td>Link 1</td><td>Link</td><td></td><td></td></tr><tr><td>Link 2 label</td><td>Text</td><td></td><td></td></tr><tr><td>Link 2</td><td>Link</td><td></td><td></td></tr><tr><td>Link 3 label</td><td>Text</td><td></td><td></td></tr><tr><td>Link 3</td><td>Link</td><td></td><td></td></tr></tbody></table></div>
+
+<h2 id="fitment">The compatibility (fitment) block</h2>
+<p>Add <strong>Fitment check</strong> to the Product information section (it is in the default product template). It compares the shopper&rsquo;s saved selection with the product&rsquo;s tags and shows one of four messages:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Message</th><th scope="col">When</th></tr></thead><tbody><tr><td><strong>Fits your Make A Model A1</strong></td><td>The product carries the selected tag or one of its parent tags.</td></tr><tr><td><strong>Universal fit</strong></td><td>The product carries your universal fit tag. A note asks shoppers to check sizes and specifications.</td></tr><tr><td><strong>Check compatibility &mdash; select your vehicle</strong></td><td>Nothing is saved yet. With <em>Show finder when nothing is selected</em> on, a compact finder with a <em>Check fit</em> button appears right in the block.</td></tr><tr><td><strong>Not confirmed for your &hellip;</strong></td><td>A selection is saved but the product has no matching tag. Shoppers are asked to check the details or contact you before ordering.</td></tr></tbody></table></div>
+<p>Settings: <strong>Heading</strong> (default &ldquo;Compatibility&rdquo;) and <strong>Show finder when nothing is selected</strong>. <em>Check fit</em> saves the selection without leaving the product page. Pair the block with a <a href="product-page.html#specs">specifications table</a> or a <a href="product-page.html#tabs">collapsible tab</a> listing compatible models, so shoppers can confirm the fit themselves.</p>
+
+<h2 id="shopper-view">What shoppers see</h2>
+<ol class="steps">
+<li>On the home page or in the header, they choose <em>Make A</em>, then <em>Model A1</em>, then <em>2016</em>, and select <strong>Find parts</strong>.</li>
+<li>They land on &ldquo;Parts for Make A Model A1 2016&rdquo; with the matching products, filters and a link to universal-fit products.</li>
+<li>The header now shows &ldquo;My vehicle: Make A Model A1 2016&rdquo; with Change and Clear.</li>
+<li>Every product page shows whether the product fits, is universal, or is not confirmed.</li>
+<li>The selection stays on their device for future visits until they change or clear it.</li>
+</ol>
+<p>If no product carries the selected tag yet, the results page says &ldquo;No products are listed for &hellip; yet&rdquo; and suggests a broader selection, universal-fit products or contacting you.</p>
+
+<h2 id="csv">Converting a spreadsheet to JSON</h2>
+<p>Keep a sheet with one row per lowest-level entry:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">level1</th><th scope="col">level1_tag</th><th scope="col">level2</th><th scope="col">level2_tag</th><th scope="col">from</th><th scope="col">to</th></tr></thead><tbody><tr><td>Make A</td><td>make-a</td><td>Model A1</td><td>model-a1</td><td>2010</td><td>2018</td></tr><tr><td>Make A</td><td>make-a</td><td>Model A2</td><td>model-a2</td><td>2016</td><td></td></tr></tbody></table></div>
+<p>Export it as CSV, then group the rows by <code>level1</code>: each group becomes one entry, its rows become <code>children</code>, and <code>from</code>/<code>to</code> become <code>years</code> (an empty <code>to</code> becomes <code>null</code>). Any CSV-to-JSON converter or a short spreadsheet script can do this. Check the result with a JSON validator before uploading.</p>
+
+<h2 id="finder-faq">Finder FAQ</h2>
+<details class="faq"><summary>Does the finder use metafields or an app?</summary><div><p>No. It works with product tags and data you add in the theme (section blocks or a JSON file). No app, external service or account is needed.</p></div></details><details class="faq"><summary>How large can my list be?</summary><div><p>Section blocks suit lists of up to a few dozen first-level entries. For hundreds or thousands of entries, use a JSON data file. The file is downloaded once per browser session, so keep it lean: only <code>label</code>, <code>tag</code> and the optional fields you need.</p></div></details><details class="faq"><summary>Do years affect which products are shown?</summary><div><p>No. Years are shown in the third dropdown and in the saved label, but matching uses tags. If parts differ by year range, make each range its own entry with its own tag (for example <code>model-a1-2010-2014</code> and <code>model-a1-2015-2018</code>), using <code>children</code> instead of <code>years</code>.</p></div></details><details class="faq"><summary>Why does a product show &ldquo;Not confirmed for your &hellip;&rdquo;?</summary><div><p>The product does not carry the selected entry&rsquo;s tag, any parent tag or the universal tag. Add the right tag to the product, or add compatibility details in a collapsible tab or specifications table so shoppers can check.</p></div></details><details class="faq"><summary>I updated my JSON file but shoppers still see the old list.</summary><div><p>Browsers keep the file for the current visit. Upload the new file under a new name and update <strong>Finder data file URL</strong>, so every new visit loads it right away.</p></div></details><details class="faq"><summary>The finder says &ldquo;The list could not be loaded&rdquo;.</summary><div><p>The file is not valid JSON, or the URL is not a Shopify Files URL or a file on your own store domain (other addresses are ignored for security). Validate the file with any JSON validator, upload it in <em>Content &rarr; Files</em> and paste the URL Shopify shows. Shoppers can still use <strong>Browse all products</strong> in the meantime.</p></div></details><details class="faq"><summary>Does it work with collection filters?</summary><div><p>Yes. The results page is a normal collection page, so filters, sorting and pagination from the Collection products section all work on top of the finder selection.</p></div></details><details class="faq"><summary>Is shopper data stored or sent anywhere?</summary><div><p>The saved selection is stored only in the shopper&rsquo;s own browser (local storage) so it can be shown in the header and checked on product pages. It is not sent to your store or to any third party, and shoppers can remove it with <strong>Clear</strong>.</p></div></details><details class="faq"><summary>How do I turn the finder off?</summary><div><p>Uncheck <em>Theme settings &rarr; Product finder &rarr; Enable product finder</em>. This hides the finder sections, the header strip and the product page fit check. To hide only the header strip, uncheck <strong>Show saved selection in header</strong>.</p></div></details>
+</article></div>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap">
+<p>Axlemark 1.1.0 &middot; Documentation by Axlemark theme support</p>
+<ul>
+<li><a href="getting-started.html">Getting started</a></li>
+<li><a href="changelog.html">Changelog</a></li>
+<li><a href="support.html">Support</a></li>
+<li><a href="https://themes.shopify.com/themes?q=axlemark">Theme Store listing</a></li>
+</ul>
+</div>
+</footer>
+</body>
+</html>

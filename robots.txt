@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lzzhdfq11-tech.github.io/axlemark-docs/sitemap.xml
